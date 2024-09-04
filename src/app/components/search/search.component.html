@@ -1,0 +1,41 @@
+<section class="wrapper">
+  <form [formGroup]="searchForm" class="search-container">
+    <input
+      formControlName="search"
+      type="text"
+      placeholder="Search..."
+      id="search-input"
+    />
+    <button type="submit" id="search-button">Search</button>
+  </form>
+
+  <div *ngIf="data$ | async as data; else loaderTemplate">
+    @if (data.posts.length > 0) {
+    <div>
+      <h1>Hi {{ data.user.name }}</h1>
+    </div>
+    <div class="posts-container">
+      <div *ngFor="let post of data.posts" class="post-card">
+        <img [src]="post.image" alt="{{ post.title }}" class="post-image" />
+        <div class="post-content">
+          <h2 class="post-title">{{ post.title }}</h2>
+          <p class="post-description">{{ post.description }}</p>
+        </div>
+      </div>
+    </div>
+    } @else {
+    <section class="no-results-container">
+      <div class="no-results-content">
+        <h1 class="no-results-title">No Posts Found</h1>
+        <p class="no-results-description">
+          We couldn't find any posts matching your search.
+        </p>
+      </div>
+    </section>
+
+    }
+  </div>
+  <ng-template #loaderTemplate>
+    <loader />
+  </ng-template>
+</section>
