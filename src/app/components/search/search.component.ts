@@ -1,19 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from '../../services/data.service';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  Observable,
-  skip,
-  takeWhile,
-} from 'rxjs';
-import { Post } from '../../models/post.interface';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { CombinedData } from '../../models/combined-data.interface';
 
 @Component({
