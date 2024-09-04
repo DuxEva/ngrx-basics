@@ -8,13 +8,6 @@ import { CombinedData } from '../models/combined-data.interface';
   providedIn: 'root',
 })
 export class Service {
-  // An alternitive way of creating the users$ using (of) operator
-
-  // users$: Observable<User[]> = of([
-  //   { id: 1, name: 'John', email: 'johndoe@gmail.com' },
-  //   { id: 2, name: 'Jason', email: 'jasont@hotmail.com' },
-  //   { id: 3, name: 'Brown', email: 'jb@comcast.com' },
-  // ]);
 
   user$: Observable<User> = new Observable((observer) => {
     observer.next({ id: 1, name: 'Kanova', email: 'jt@celtics.com' });
